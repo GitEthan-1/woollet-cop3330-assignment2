@@ -5,7 +5,6 @@
 package oop.assignment2.ex25.base;
 
 import java.util.Scanner;
-import java.util.regex.*;
 
 /**
  * Exercise 25 - Password Strength Indicator

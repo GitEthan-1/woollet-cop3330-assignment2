@@ -5,6 +5,7 @@
 package oop.assignment2.ex27.base;
 
 import java.util.Scanner;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Exercise 27 - Validating Inputs
@@ -17,6 +18,7 @@ import java.util.Scanner;
  * The first and last names must be at least two characters long.
  * An employee ID is in the format AA-1234. So, two letters, a hyphen, and four numbers.
  * The ZIP code must be a number.
+ *
  * Display appropriate error messages on incorrect data.
  *
  * Example Output
@@ -40,7 +42,8 @@ import java.util.Scanner;
  *
  * Constraints
  *
- * Create a function for each type of validation you need to write. Then create a validateInput function that takes in all of the input data and invokes the specific validation functions.
+ * Create a function for each type of validation you need to write.
+ * Then create a validateInput function that takes in all of the input data and invokes the specific validation functions.
  * Use a single output statement to display the outputs.
  *
  * Challenges
@@ -55,6 +58,20 @@ public class App {
 
 
 	public static void main(String[] args) {
+		String firstName = getString("Enter the first name: ");
+		String lastName = getString("Enter the last name: ");
+		String zip = getString("Enter the ZIP code: ");
+		String id = getString("Enter employee ID: ");
+
+		InfoValidator valid = new InfoValidator();
+		valid.validateInput(lastName, firstName, zip, id);
 
 	}
+
+
+	public static String getString(String message) {
+		System.out.print(message);
+		return in.nextLine();
+	}
+
 }

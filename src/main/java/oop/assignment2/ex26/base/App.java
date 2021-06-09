@@ -74,8 +74,7 @@ public class App {
 					throw new NumberFormatException();
 
 				return userInt;
-			}
-			catch (NumberFormatException fe) {
+			} catch (NumberFormatException fe) {
 				System.out.println("Please enter a positive whole number");
 			}
 		}

@@ -7,7 +7,6 @@ package oop.assignment2.ex25.base;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Locale;
-import java.util.regex.Pattern;
 
 public class PasswordStrength {
 	public int score(String pass) {
