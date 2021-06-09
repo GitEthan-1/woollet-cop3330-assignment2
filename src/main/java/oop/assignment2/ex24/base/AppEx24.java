@@ -32,7 +32,7 @@ import java.util.Scanner;
  * Complete this program without using built-in language features. Use selection or repetition logic instead and develop your own algorithm.
  */
 
-public class App {
+public class AppEx24 {
 	
 	public static final	Scanner in = new Scanner(System.in);
 	
