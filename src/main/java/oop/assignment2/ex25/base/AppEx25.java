@@ -36,7 +36,7 @@ import java.util.Scanner;
  * As someone enters a password, determine its strength and display the result
  */
 
-public class App {
+public class AppEx25 {
 	public static final Scanner in = new Scanner(System.in);
 	
 	public static void main(String[] args) {

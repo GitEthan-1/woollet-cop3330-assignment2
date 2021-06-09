@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 1 Solution
+ *  Copyright 2021 first_name last_name
+ */
 package oop.assignment2.ex27.base;
 
 import org.apache.commons.lang3.StringUtils;
@@ -5,49 +9,59 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Locale;
 
 public class InfoValidator{
-	public void validateInput(String fname, String lname, String zip, String id) {
-		if( validateName(fname, "first name") && validateName(lname, "last name") && validateZIP(zip) &&validateID(id))
-			System.out.println("There were no errors found.");
+	public String validateInput(String fname, String lname, String zip, String id) {
+		String output = validateName(fname, "first name") + validateName(lname, "last name") + validateZIP(zip) + validateID(id);
+
+		if(output.length() == 0)
+			return "There were no errors found." ;
+		else
+			return output;
 
 	}
 
-	private boolean validateName(String name, String typeName) {
-		if(StringUtils.indexOfAny(name, '0','1','2','3','4','5','6','7','8','9') != -1){
-			System.out.println("The " + typeName + " must not include numbers.");
-			return false;
+	private String validateName(String name, String typeName) {
+		if(StringUtils.indexOfAny(name, '0','1','2','3','4','5','6','7','8','9',',') != -1){
+			return "The " + typeName + " must not include numbers.\n" ;
 		}
 		else if(name.length() == 0)
 		{
-			System.out.println("The " + typeName + " must be filled in.");
-			return false;
+			return "The " + typeName + " must be filled in.\n";
 		}
 		else if(name.length() == 1) {
-			System.out.println("\"" + name + " is not a valid " + typeName + ". It is too short.");
-			return false;
+			return "\"" + name + "\" is not a valid " + typeName + ". It is too short.\n";
 		}
 		else
-			return true;
+			return "";
 	}
 
-	private boolean validateID(String id) {
+	private String validateID(String id) {
 		String[] arr = id.split("-");
-		System.out.println( "array size: " + arr.length + "\n" + arr[0] + "-" + arr[1]);
-		return false;
+		if(id.length() == 0)
+			return "The id must be filled in.\n" ;
+		try {
+			Integer.parseInt(arr[1]);
+
+			if (StringUtils.indexOfAny(arr[0], '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',','!','@','#','$','%','^','&','*') != -1)
+				throw new NumberFormatException();
+
+			return "";
+		}
+		catch(NumberFormatException | ArrayIndexOutOfBoundsException nfe) {
+			return id + " is not a valid ID.\n" ;
+		}
 	}
 
-	private boolean validateZIP(String zip) {
+	private String validateZIP(String zip) {
 		try {
 			int zipInt = Integer.parseInt(zip);
-			if (zipInt <= 9999 || zipInt >= 100000) {
-				System.out.println("The ZIP code must be 5 digits.");
-				return false;
+			if (zip.length() !=5) {
+				return "The ZIP code must be 5 digits.\n" ;
 			}
 			else
-				return true;
+				return "";
 		}
 		catch(NumberFormatException nfe) {
-			System.out.println("The ZIP code must be numeric.");
-			return false;
+			return "The ZIP code must be numeric.\n" ;
 		}
 	}
 }

@@ -53,18 +53,19 @@ import org.apache.commons.lang3.StringUtils;
  * Repeat the process if the input is not valid.
  */
 
-public class App {
+public class AppEx27 {
 	public static final Scanner in = new Scanner(System.in);
 
 
 	public static void main(String[] args) {
+
 		String firstName = getString("Enter the first name: ");
 		String lastName = getString("Enter the last name: ");
 		String zip = getString("Enter the ZIP code: ");
 		String id = getString("Enter employee ID: ");
 
 		InfoValidator valid = new InfoValidator();
-		valid.validateInput(lastName, firstName, zip, id);
+		System.out.println(valid.validateInput(lastName, firstName, zip, id));
 
 	}
 

@@ -45,7 +45,7 @@ import java.util.Scanner;
  * Create a version of the program that lets the user choose whether to figure out the number of months until payoff or the amount needed to pay per month.
  */
 
-public class App {
+public class AppEx27 {
 	public static final Scanner in = new Scanner(System.in);
 
 
