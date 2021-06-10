@@ -45,7 +45,7 @@ import java.util.Scanner;
  * Create a version of the program that lets the user choose whether to figure out the number of months until payoff or the amount needed to pay per month.
  */
 
-public class AppEx27 {
+public class AppEx26 {
 	public static final Scanner in = new Scanner(System.in);
 
 
@@ -54,8 +54,8 @@ public class AppEx27 {
 		int balance = getInteger("What is your balance? ");
 		double apr = getDouble("What is the APR on the card (as a percent)? ");
 		int payment = getInteger("What is the monthly payment you can make? ");
-
-		int months = calculate(balance , apr , payment);
+		PaymentCalculator calc = new PaymentCalculator();
+		int months = calc.calculateMonthsUntilPaidOff(balance , apr , payment);
 
 		output(months);
 	}
@@ -106,10 +106,4 @@ public class AppEx27 {
 		System.out.println("It will take you " + time + (time > 1 ? " months " : " month ") + "to pay off this card.");
 	}
 
-
-	public static int calculate(int balance, double apr, int payment) {
-		apr /= 100;
-		double numerator = -1* Math.log(1 + (1.0 * balance / payment) * (1 - Math.pow( 1 + (apr / 365), 30))) / (30 * Math.log( 1 + (apr / 365)));
-		return (int)Math.ceil(numerator);
-	}
 }
