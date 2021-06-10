@@ -6,5 +6,6 @@ Prompt -> Prompt : Total += n2
 Prompt -> Prompt : Total += n3
 Prompt -> Prompt : Total += n4
 Prompt -> Prompt : Total += n5
+Prompt -> End : Exit Program
 @enduml
 

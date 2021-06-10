@@ -20,7 +20,7 @@ public class InfoValidator{
 	}
 
 	private String validateName(String name, String typeName) {
-		if(StringUtils.indexOfAny(name, '0','1','2','3','4','5','6','7','8','9',',') != -1){
+		if(StringUtils.indexOfAny(name, '0','1','2','3','4','5','6','7','8','9') != -1){
 			return "The " + typeName + " must not include numbers.\n" ;
 		}
 		else if(name.length() == 0)
