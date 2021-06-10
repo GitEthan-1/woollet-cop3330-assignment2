@@ -1,0 +1,10 @@
+@startuml
+Start -> Prompt
+autonumber
+Prompt -> Prompt : 0 + n1
+Prompt -> Prompt : Total += n2
+Prompt -> Prompt : Total += n3
+Prompt -> Prompt : Total += n4
+Prompt -> Prompt : Total += n5
+@enduml
+

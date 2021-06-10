@@ -4,6 +4,8 @@
  */
 package oop.assignment2.ex28.base;
 
+import java.util.Scanner;
+
 /**
  *Exercise 28 - Adding Numbers
  * In previous programs, you asked the user for repeated input by writing the input statements multiple times.
@@ -34,7 +36,41 @@ package oop.assignment2.ex28.base;
  */
 
 public class AppEx28 {
-	public static void main(String[] args) {
+	public static final Scanner in = new Scanner(System.in);
 
+	// how many numbers are being read from the user
+	public static final int NUM = 5;
+
+	public static void main(String[] args) {
+		int total = sumArray(get5());
+		System.out.println("The total is " + total + ".");
+
+	}
+
+	public static int sumArray(int arr[]) {
+		int total = 0;
+		for (int i = 0; i < arr.length; i++) {
+			total += arr[i];
+		}
+		return total;
+	}
+
+	public static int[] get5() {
+		int[] inputArr = new int[NUM];
+		for (int i = 0; i < NUM; i++) {
+			inputArr[i]= getInt("Enter a number: ");
+		}
+		return inputArr;
+	}
+
+	public static int getInt(String message) {
+		while (true) {
+			try {
+				System.out.print(message);
+				return Integer.parseInt(in.nextLine());
+			}
+			catch (NumberFormatException nfe) {
+			}
+		}
 	}
 }
