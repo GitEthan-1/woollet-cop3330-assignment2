@@ -1,3 +1,7 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 1 Solution
+ *  Copyright 2021 first_name last_name
+ */
 package oop.assignment2.ex28.base;
 
 import org.junit.jupiter.api.Test;
