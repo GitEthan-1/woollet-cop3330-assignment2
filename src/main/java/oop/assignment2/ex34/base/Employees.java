@@ -4,36 +4,40 @@
  */
 package oop.assignment2.ex34.base;
 
+import java.util.LinkedList;
+
 public class Employees {
-	public static String[] EMPLOYEE_LIST = {
-			"John Smith" ,
-			"Jackie Jackson" ,
-			"Chris Jones" ,
-			"Amanda Cullen" ,
-			"Jeremy Goodwin" };
+	private static LinkedList<String> EMPLOYEE_LIST;
+
+	public static void setEmployeeList(LinkedList<String> employeeList) {
+		EMPLOYEE_LIST = employeeList;
+	}
+
+	public static void setDefualtEmployees() {
+		Employees.setEmployeeList(new LinkedList<String>());
+		EMPLOYEE_LIST.add("John Smith");
+		EMPLOYEE_LIST.add("Jackie Jackson");
+		EMPLOYEE_LIST.add("Chris Jones");
+		EMPLOYEE_LIST.add("Amanda Cullen");
+		EMPLOYEE_LIST.add("Jeremy Goodwin");
+	}
+
+	public static LinkedList<String> getEmployeeList() {
+		return EMPLOYEE_LIST;
+	}
 
 	public static void printList() {
 		System.out.println("\nThere are " + numberOfEmployees() + " employees:\n");
-		for (int i = 0; i < EMPLOYEE_LIST.length; i++) {
-			if(EMPLOYEE_LIST[i].length() != 0)
-				System.out.println(EMPLOYEE_LIST[i]);
-		}
+		for (String name : EMPLOYEE_LIST)
+			System.out.println(name);
 		System.out.println();
 	}
 
 	public static void remove(String remove) {
-		for (int i = 0; i < EMPLOYEE_LIST.length; i++) {
-			if(remove.contentEquals(EMPLOYEE_LIST[i]))
-				EMPLOYEE_LIST[i] = "";
-		}
+		EMPLOYEE_LIST.removeIf(remove::contentEquals);
 	}
 
 	public static int numberOfEmployees() {
-		int num=0;
-		for (int i = 0; i < EMPLOYEE_LIST.length; i++) {
-			if(EMPLOYEE_LIST[i].length() != 0)
-				num++;
-		}
-		return num;
+			return EMPLOYEE_LIST.size();
 	}
 }

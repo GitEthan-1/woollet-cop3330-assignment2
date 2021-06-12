@@ -1,8 +1,13 @@
+/*
+ *  UCF COP3330 Summer 2021 Assignment 1 Solution
+ *  Copyright 2021 first_name last_name
+ */
 package oop.assignment2.ex34.base;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,36 +15,38 @@ class EmployeesTest {
 
 	@Test
 	void remove_Jackie_Jackson() {
+		Employees.setDefualtEmployees();
 		Employees.remove("Jackie Jackson");
-		boolean expected = true;
-		boolean actual = true;
-		for (int i = 0; i < Employees.EMPLOYEE_LIST.length; i++) {
-			if(Employees.EMPLOYEE_LIST[i].contentEquals("Jackie Jackson"))
-				actual = false;
-		}
-
-		assertEquals(expected , actual);
+		LinkedList<String> list = Employees.getEmployeeList();
+		if(list.contains("Jackie Jackson"))
+			fail();
 	}
 
 	@Test
 	void remove_Jeremy_Goodwin() {
+		Employees.setDefualtEmployees();
 		Employees.remove("Jeremy Goodwin");
-		boolean expected = true;
-		boolean actual = true;
-		for (int i = 0; i < Employees.EMPLOYEE_LIST.length; i++) {
-			if(Employees.EMPLOYEE_LIST[i].contentEquals("Jeremy Goodwin"))
-				actual = false;
-		}
+		LinkedList<String> list = Employees.getEmployeeList();
+		if(list.contains("Jeremy Goodwin"))
+			fail();
 
-		assertEquals(expected , actual);
 	}
 
 	@Test
 	void numberOfEmployees_0_employees() {
-		Arrays.fill(Employees.EMPLOYEE_LIST, "");
+		Employees.setEmployeeList(new LinkedList<String>());
 		int expected = 0;
 		int actual = Employees.numberOfEmployees();
 
-		assertEquals(expected , actual);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	void numberOfEmployees_5_employees() {
+		Employees.setDefualtEmployees();
+		int expected = 5;
+		int actual = Employees.numberOfEmployees();
+
+		assertEquals(expected, actual);
 	}
 }
