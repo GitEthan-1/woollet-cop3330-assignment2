@@ -21,7 +21,6 @@ public class HeartRate {
 		for (int i = 0; i < arr[0].length; i++) {
 			output += arr[0][i] + "%\t\t\t| " + arr[1][i] + " bpm\n";
 		}
-		System.out.print(output);
 		return output;
 	}
 }
