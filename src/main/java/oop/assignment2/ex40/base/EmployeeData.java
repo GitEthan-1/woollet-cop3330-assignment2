@@ -54,6 +54,7 @@ public class EmployeeData {
 
 
 	public static String searchEmployees(Map<Object, Employee> employees, String search) {
+		search = search.toLowerCase(Locale.ROOT);
 		StringBuilder output = new StringBuilder();
 		output.append("""
 				Name                | Position          | Separation Date

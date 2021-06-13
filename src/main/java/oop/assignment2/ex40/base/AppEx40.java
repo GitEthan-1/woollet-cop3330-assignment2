@@ -54,7 +54,7 @@ public class AppEx40 {
 	public static final Scanner in = new Scanner(System.in);
 	public static void main(String[] args) {
 		Map<Object, Employee> employees = EmployeeData.loadEmployees();
-		System.out.println("Enter a search string: ");
+		System.out.print("Enter a search string: ");
 		String output = EmployeeData.searchEmployees(employees, in.nextLine());
 		System.out.println(output);
 	}
