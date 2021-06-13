@@ -8,7 +8,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 
-import static oop.assignment2.ex39.base.EmployeeData.loadEmployees;
 
 /**
  * Exercise 39 - Sorting Records
@@ -48,7 +47,7 @@ Tou Xiong           | Software Engineer | 2016-10-05
 
 public class AppEx39 {
 	public static void main(String[] args) {
-		Map<Object, Employee> employees = loadEmployees();
+		Map<Object, Employee> employees = EmployeeData.loadEmployees();
 		String output = EmployeeData.table(employees);
 		System.out.println(output);
 	}
