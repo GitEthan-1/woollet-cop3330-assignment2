@@ -4,11 +4,13 @@
  */
 package oop.assignment2.ex39.base;
 
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
+
+import static oop.assignment2.ex39.base.EmployeeData.loadEmployees;
+
 /**
- * Challenge
- * Instead of prompting for numbers, read in lines from any text file and print out only the even-numbered lines.
- *
- *
  * Exercise 39 - Sorting Records
  * When you’re looking at results, you’ll want to be able to sort them so you can find what you’re looking for quickly or do some quick visual comparisons.
  *
@@ -24,15 +26,15 @@ package oop.assignment2.ex39.base;
  *
  *
  * Example Output
- *
- * Name                | Position          | Separation Date
- * --------------------|-------------------|----------------
- * Jacquelyn Jackson   | DBA               |
- * Jake Jacobson       | Programmer        |
- * John Johnson        | Manager           | 2016-12-31
- * Michaela Michaelson | District Manager  | 2015-12-19
- * Sally Weber         | Web Developer     | 2015-12-18
- * Tou Xiong           | Software Engineer | 2016-10-05
+
+Name                | Position          | Separation Date
+--------------------|-------------------|----------------
+Jacquelyn Jackson   | DBA               |
+Jake Jacobson       | Programmer        |
+John Johnson        | Manager           | 2016-12-31
+Michaela Michaelson | District Manager  | 2015-12-19
+Sally Weber         | Web Developer     | 2015-12-18
+Tou Xiong           | Software Engineer | 2016-10-05
  *
  * Constraint
  *
@@ -45,4 +47,9 @@ package oop.assignment2.ex39.base;
  */
 
 public class AppEx39 {
+	public static void main(String[] args) {
+		Map<Object, Employee> employees = loadEmployees();
+		String output = EmployeeData.table(employees);
+		System.out.println(output);
+	}
 }
